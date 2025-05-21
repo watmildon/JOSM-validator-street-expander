@@ -212,7 +212,7 @@ namespace JOSM_validator_street_expander
             foreach (var kvp in abbreviations)
             {
                 postfixRegex += $" {kvp.Key}$|";
-                postfixPeriodRegex += $" {kvp.Key}.$|";
+                postfixPeriodRegex += $" {kvp.Key}\\.$|";
                 prefixRegex += $"^{kvp.Key} |";
                 middleRegex += $" {kvp.Key} |";
             }
@@ -362,7 +362,7 @@ namespace JOSM_validator_street_expander
                 output.AppendLine();
             }
 
-            File.WriteAllText(@"C:\OSM\josm-validator-rules\josm-validator-rules\rules\USStreetNameExpander.validator.mapcss", output.ToString());
+            File.WriteAllText(@"USStreetNameExpander.validator.mapcss", output.ToString());
         }
     }
 }
